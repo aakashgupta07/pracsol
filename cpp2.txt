@@ -1,0 +1,105 @@
+#include<iostream.h>
+#include<conio.h>
+class matrix
+{
+
+	int a[3][3];
+	public:
+		void get();
+		void disp();
+		void operator -(matrix n);
+
+};
+
+void matrix::get()
+{
+	cout<<"\n Enter the matrix:-";
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			cin>>a[i][j];
+		}
+	}
+}
+void matrix::disp()
+{
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			cout<<a[i][j]<<" ";
+		}
+		cout<<"\n";
+	}
+}
+void matrix::operator -(matrix n)
+{
+	int mat[3][3];
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			mat[i][j]=a[i][j]-n.a[i][j];
+		}
+	}
+	cout<<"\nSubtraction of matrix:\n";
+	for( i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			cout<<mat[i][j]<<" ";
+		}
+		cout<<"\n";
+	}
+}
+
+void main()
+{
+	matrix m,n;
+	clrscr();
+	m.get();
+	n.get();
+	cout<<"\nMatrix 1st: \n";
+	m.disp();
+	cout<<"\nMatrix 2nd: \n";
+	n.disp();
+	m-n;
+	getch();
+}
+
+
+
+#include<iostream.h>
+#include<iomanip.h>
+#include<conio.h>
+class emp
+{
+	public:
+		int empid;
+		char empname[20];
+		char company[20];
+		int salary;
+	public:
+		void get()
+		{
+			cout<<"\n Enter Employee details:";
+			cin>>empid>>empname>>company>>salary;
+		}
+		void put()
+		{
+			cout<<"\n Empid ="<<empid;
+			cout<<"\n Empname ="<<empname;
+			cout<<"\n Emp company="<<company;
+			cout<<"\n Salary="<<setfill('*')<<setw(7)<<salary;
+			cout.setf(ios::right,ios::adjustfield);
+		}
+};
+void main()
+{
+	emp e;
+	clrscr();
+	e.get();
+	e.put();
+	getch();
+}

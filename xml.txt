@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+ <books>
+<book id="101">
+       <title> PHP Basics </title>
+       <author> Raj </author>
+       <price> 500 </price>
+       <qty> 7</qty>
+</book>
+
+<book id="102">
+       <title> PHP Advance </title>
+       <author> Alex </author>
+       <price> 900 </price>
+       <qty> 1</qty>
+</book>
+
+<book id="103">
+       <title> PHP in WEBAPPS </title>
+       <author> Miraj </author>
+       <price> 1200 </price>
+       <qty> 5</qty>
+</book>
+
+<book id="104">
+       <title> The basic to advance PHP</title>
+       <author> Shubham </author>
+       <price> 2000 </price>
+       <qty> 4</qty>
+</book>
+
+</books>
+
+
+<?php
+// Load the XML file
+$xml = simplexml_load_file('bookx.xml');
+
+// Create an HTML table
+echo '<table border="1">';
+echo '<tr><th>ID</th><th>Title</th><th>Author</th><th>Price</th><th>Quantity</th><th>Total</th></tr>';
+
+//Converting xml data in table rows
+foreach ($xml->book as $book) {
+    $id = $book['id'];
+    $title = $book->title;
+    $author = $book->author;
+    $price = $book->price;
+    $quantity=$book->qty;
+    $total=$quantity*$price;
+    echo "
+    <tr>
+        <td>$id</td>
+        <td>$title</td>
+        <td>$author</td>
+        <td>$price</td>
+        <td>$quantity</td>
+        <td>$total</td>
+    </tr>
+    ";
+}
+
+echo '</table>';
+?>

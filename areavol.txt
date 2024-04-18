@@ -1,0 +1,34 @@
+<?php
+    define ("PI",3.14);
+    interface sample
+    {
+        function area();
+        function volume();
+    }
+
+    class cylinder implements sample
+    {
+        private $r,$h;
+        function cylinder($r,$h)
+        {
+            $this->r=$r;
+            $this->h=$h;
+        }
+        public function area()
+        {
+            $area=2*PI*$this->r*($this->r+$this->h);
+            echo "Area = $area";
+        }
+
+         public function volume()
+        {
+            $vol=PI*$this->r*$this->r*$this->h;
+            echo "Volume = $vol";
+        }
+    }
+
+    $obj1= new cylinder(2,3);
+    $obj1-> area();
+    echo "<br>";
+    $obj1-> volume();
+ ?>

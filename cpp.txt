@@ -1,0 +1,132 @@
+#include<iostream.h>
+#include<conio.h>
+
+
+inline int max(int a, int b)
+{
+	return ((a>b) ? a : b);
+}
+
+inline int min(int a , int b)
+{
+	return ((a<b) ? a : b);
+}
+
+int main()
+{
+int a, b;
+clrscr();
+cout <<"Enter any two numbers\n";
+cout <<"Number 1 : \n";
+cin >> a;
+cout <<"Number 2 : \n";
+cin >> b;
+cout <<"Maximum between two numbers is "<< max(a, b) <<endl;
+cout <<"Minimum between two numbers is "<< min(a, b) <<endl;
+getch();
+return 0;
+}
+
+
+#include<iostream.h>
+#include<conio.h>
+float cyvol(float r, float h)
+{
+	return (3.14*r*r*h);
+}
+float covol(float r, float h)
+{
+	return ((3.14*r*r*h)/3);
+}
+float spvol(float r)
+{
+	return (4/3*(3.14*r*r*r));
+}
+
+int main()
+{
+	float cy_r,cy_h,co_r,co_h,sp_r;
+	clrscr();
+	cout <<"Enter dimension\n";
+	cout <<"1.Cylinder\n";
+	cout <<"Radius : ";
+	cin >> cy_r;
+	cout <<"Height : ";
+	cin >> cy_h;
+	cout <<endl;
+	cout <<"2.Cone\n";
+	cout <<"Radius : ";
+	cin >> co_r;
+	cout <<"Height : ";
+	cin >> co_h;
+	cout << endl;
+	cout <<"3.Sphere\n";
+	cout <<"Radius : ";
+	cin >> sp_r;
+	cout <<endl;
+	cout <<"\nThe volume of cylinder is "<< cyvol(cy_r, cy_h);
+	cout <<"\nThe volume of cone is "<< covol(co_r, co_h);
+	cout <<"\nThe volume of sphere is "<< spvol(sp_r);
+	getch();
+	return 0;
+}
+
+
+
+#include<iostream.h>
+#include<conio.h>
+void swap(int &a, int &b)
+{
+	int temp;
+	temp=a;
+	a=b;
+	b=temp;
+}
+
+int main()
+{
+	int a,b;
+	clrscr();
+	cout <<"Enter two numbers :\n";
+	cout <<"Number 1 : ";
+	cin >> a;
+	cout <<"Number 2 : ";
+	cin >> b;
+	cout << "\nOriginal number : a = "<< a << " &b = " << b;
+	swap(a, b);
+	cout << "\nAfter swapping : a = "<< a << " &b = " << b;
+	getch();
+	return 0;
+}
+
+
+#include<iostream.h>
+#include<conio.h>
+class worker
+{
+	char name[20];
+	int hr;
+	public:
+		void accept()
+		{
+			cout <<"\nEnter name : ";
+			cin >> name;
+			cout << "\nEnter working hours : ";
+			cin >> hr;
+		}
+		void cal(int r=200)
+		{
+			cout <<"\nSalary of workers is : "<< hr*r;
+		}
+};
+
+void main()
+{
+	worker w1,w2;
+	clrscr();
+	w1.accept();
+	w1.cal(300);
+	w2.accept();
+	w2.cal();
+	getch();
+}

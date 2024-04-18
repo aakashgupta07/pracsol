@@ -1,0 +1,29 @@
+<?php
+ $q=  $_GET["q"];
+   $xml=simplexml_load_file("booksearch.xml")or die("cannot Load");
+   $f=false;
+  foreach ($xml->BOOK as $a)
+{
+  IF($a->BNAME==$q)
+    {
+echo "Book Id:".$a['ID'];
+echo "<br>Book Name:".$a->BNAME;
+echo "<br>Author".$a->AUTHOR;
+echo "<br>Year".$a->YEAR;
+echo "<br> Price".$a->PRICE;
+$f=true;
+   }
+   }
+   if($f==false)
+   echo "not found";
+?>
+
+
+<?php
+        echo "Selected subjects are : ";
+        echo " ";
+        foreach($_GET['subjects'] as $s)
+        {
+                echo "$s    ";
+        }
+ ?>

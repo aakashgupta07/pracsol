@@ -1,0 +1,92 @@
+<html><head>
+<script>
+function showTECH(str)
+{
+if(str=="")
+ {
+document.getElementById("myDiv").innerHTML="";
+return;
+ }
+if(window.XMLHttpRequest)
+ {
+  XHRobj= new XMLHttpRequest();
+ }
+else
+ {
+  XHRobj=new ActiveXObject("Microsoft.XMLHTTP");
+ }
+ XHRobj.onreadystatechange=function()
+ {
+if(XHRobj.readyState==4 && XHRobj.status==200)
+  {
+document.getElementById("myDiv").innerHTML=XHRobj.responseText;
+  }
+ }
+XHRobj.open("GET","book.php?q="+str,true);
+XHRobj.send();
+}
+</script></head><body><form>
+select a book:
+<select name="TECH" onchange="showTECH(this.value)">
+<option value="">Select any one subject:</option>
+<option value="PHP">PHP</option>
+<option value="JAVA">JAVA</option>
+<option value="TCS">TCS</option>
+<option value="N/W">N/W</option>
+<option value="ASP">ASP</option>
+</select></form>
+<div id="myDiv"><b>Book info will be listed here..</b></div>
+</body></html>
+
+
+
+<?php
+ $q=  $_GET["q"];
+   $xml=simplexml_load_file("BOOK.xml")or die("cannot Load");
+   $f=false;
+  foreach ($xml->BOOK as $a)
+{
+  IF($a->BNAME==$q)
+    {
+echo "Book Id:".$a['ID'];
+echo "<br>Book Name:".$a->BNAME;
+echo "<br>Author".$a->AUTHOR;
+echo "<br>Year".$a->YEAR;
+echo "<br> Price".$a->PRICE;
+$f=true;
+   }
+   }
+   if($f==false)
+   echo "not found";
+?>
+
+
+
+<?xml version="1.0"?>
+<BOOKINFO>
+
+<BOOK ID="L001">
+<BNAME>PHP</BNAME>
+<AUTHOR>NIRALI</AUTHOR>
+<YEAR>2015 </YEAR>
+<PRICE>300</PRICE>
+</BOOK>
+<BOOK ID="L002">
+<BNAME>N/W</BNAME>
+<AUTHOR>NIRALI</AUTHOR>
+<YEAR>2015 </YEAR>
+<PRICE>300</PRICE>
+</BOOK>
+<BOOK ID="L003">
+<BNAME>JAVA</BNAME>
+<AUTHOR>TECH-MAX</AUTHOR>
+<YEAR>2015 </YEAR>
+<PRICE>350</PRICE>
+</BOOK>
+<BOOK ID="L004">
+<BNAME>TCS</BNAME>
+<AUTHOR>VISION</AUTHOR>
+<YEAR>2014 </YEAR>
+<PRICE>400</PRICE>
+</BOOK>
+</BOOKINFO>

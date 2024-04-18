@@ -1,0 +1,104 @@
+#include<iostream.h>
+#include<conio.h>
+class square
+{
+	public :
+		int s;
+		void getdata()
+		{
+			cout <<"\nEnter the side of a square : ";
+			cin >> s;
+		}
+		int calarea()
+		{
+			return (s*s);
+		}
+
+};
+
+class rectangle
+{
+	public :
+		int l,b;
+		void getdata()
+		{
+			cout <<"\nEnter the length : ";
+			cin >> l;
+			cout <<"\nEnter the width : ";
+			cin >> b;
+		}
+		int calarea()
+		{
+			return (l*b);
+		}
+
+};
+
+void compare(int s,int r)
+{
+	if(s>r)
+	{
+		cout <<"\nArea of sq is bigger than r ";
+	}
+	else
+	{
+		cout <<"\nArea of r is bigger than sq ";
+	}
+}
+int main()
+{
+	int s_area,r_area;
+	square s;
+	rectangle r;
+	clrscr();
+	s.getdata();
+	s_area=s.calarea();
+	r.getdata();
+	r_area=r.calarea();
+	cout <<"\nSquare : "<< s_area<< "\nRectangle : "<<r_area;
+	compare(s_area,r_area);
+	getch();
+	return 0;
+}
+
+
+
+#include<iostream.h>
+#include<conio.h>
+class account
+{
+	private:
+		int accno;
+		char type[20];
+		int balance;
+	public:
+		void accept();
+		void display();
+};
+void account :: accept()
+{
+	cout<<"\nEnter account number :";
+	cin>>accno;
+	cout<<"\nEnter account type:";
+	cin>>type;
+	cout<<"\nEnter Account balance:";
+	cin>>balance;
+}
+void account :: display()
+{
+	cout<<"\nAccount number:"<<accno;
+	cout<<"\nAccount type:"<<type;
+	cout<<"\nAccount balance:"<<balance;
+}
+int main()
+{
+	account ac1[3];
+	clrscr();
+	for(int i=0;i<3;i++)
+	{
+	ac1[i].accept();
+	ac1[i].display();
+	}
+	getch();
+	return 0;
+}

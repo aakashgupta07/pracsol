@@ -1,0 +1,43 @@
+<html>
+        <form method="GET" action="setc4.php">
+        Enter a student name : <input type="text" name="n1" value="<?php if(isset($_GET['n1'])) echo $_GET[]'n1';?>"><br>
+        Gender : <br><input type="radio" name="r1" value="male">Male <br>
+                                 <input type="radio" name="r1" value="female">Female <br>
+        Qualificstions : <br>
+                                 <input type="checkbox" name="c1" value="SSC" <?php if(isset($_GET['c1']))
+                                 if($_GET['c1']=='SSC') echo "checked";?>SSC <br>
+
+                                 <input type="checkbox" name="c2" value="HSC" <?php if(isset($_GET['c2']))
+                                 if($_GET['c2']=='HSC') echo "checked";?>HSC <br>
+
+                                 <input type="checkbox" name="c3" value="BCA" <?php if(isset($_GET['c3']))
+                                 if($_GET['c3']=='BCA') echo "checked";?>BCA <br>
+
+                                 <input type="checkbox" name="c4" value="MCA" <?php if(isset($_GET['c4']))
+                                 if($_GET['c4']=='MCA') echo "checked";?>MCA <br>
+
+                                  <input type="submit" name="s" value="My qualication">
+                                  </form>
+
+</html>
+
+
+
+<?php
+        if(isset($_GET['s']))
+        {
+                $n=$_GET['n1'];
+                echo "Student name : $n";
+                if(isset($_GET['r1']))
+                echo "<br>Gender :".$_GET['r1'];
+                echo "<br>Qualification : <br>";
+                if(isset($_GET['c1']))
+                echo $_GET['c1'];
+                 if(isset($_GET['c2']))
+                echo $_GET['c2'];
+                 if(isset($_GET['c3']))
+                echo $_GET['c3'];
+                 if(isset($_GET['4']))
+                echo $_GET['c4'];
+        }
+ ?>

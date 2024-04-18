@@ -1,0 +1,159 @@
+#include<iostream.h>
+#include<conio.h>
+class stud
+{
+	public :
+		int sid;
+		char sname[20],class1[20];
+		void get()
+		{
+			cout<<"\nenter stud details : ";
+			cin>>sid>>sname>>class1;
+		}
+		void put()
+		{
+			cout<<"\nStudent name : "<<sname;
+			cout<<"\nStudent id : "<<sid;
+			cout<<"\nStudent class : "<<class1;
+
+		}
+};
+
+class comp
+{
+	public :
+		int cid;
+		char cname[20];
+		void accept()
+		{
+			cout<<"\nenter comp deatails :";
+			cin>>cid>>cname;
+		}
+		void show()
+		{
+			cout<<"\nComp id : "<<cid;
+			cout<<"\ncomp name : "<<cname;
+		}
+};
+
+class studcomp:stud,comp
+{
+	public:
+		int rank;
+		void acc1()
+		{
+			cout <<"\nEnter rank : ";
+			cin>>rank;
+			get();
+			accept();
+		}
+		void show1()
+		{
+			cout<<"Rank : "<<rank;
+			put();
+			show();
+		}
+
+		void sort(studcomp &r1,studcomp &r2)
+		{
+			studcomp rt;
+			if(r1.rank>r2.rank)
+			{
+				rt=r1;
+				r1=r2;
+				r2=rt;
+			}
+		}
+};
+
+void main()
+{
+	int ch,num;
+	char cont;
+	studcomp t[5];
+	clrscr();
+	cout<<"\n1.accept and display\n2.ascending";
+	do
+	{
+		cout <<"\nEnter your ; ";
+		cin>>ch;
+		switch(ch)
+		{
+			case 1:
+				cout <<"\n h0w many records : ";
+				cin>>num;
+				for(int i=0;i<num;i++)
+				{
+					t[i].acc1();
+				}
+				for(i=0;i<num;i++)
+				{
+					t[i].show1();
+				}
+				break;
+			case 2:
+				for(i=0;i<num;i++)
+				{
+					for(int j=i+1;j<num;j++)
+					{
+						t[i].sort(t[i],t[j]);
+						t[i].show1();
+					}
+					break;
+				}
+				cout<<"\nDo u wanna cont : ";
+					cin>>cont;
+			}
+			}
+			while(cont=='Y'||cont=='y');
+		getch();
+		}
+
+
+
+
+    #include<iostream.h>
+#include<stdio.h>
+#include<conio.h>
+class person
+{
+	char name[20];
+	char add[40];
+	float sal,tax;
+	public:
+		void get()
+		{
+			cout <<"\nenter details: ";
+			cin>>name>>add>>sal;
+		}
+		void put()
+		{
+			cout <<"\nDetails\n";
+			cout <<name<<"\t"<<add<<"\t"<<sal<<"\t"<<tax;
+		}
+		void cal()
+		{
+			if(sal<20000)
+			{
+			tax=0;
+			}
+			else if(sal>20000 & sal<40000)
+			{
+			tax=sal*5/100;
+			}
+			else if(sal>40000)
+			{
+			tax=sal*10/100;
+			}
+
+		}
+};
+void main()
+{
+	person p;
+	clrscr();
+	p.get();
+	p.cal();
+	p.put();
+	getch();
+}
